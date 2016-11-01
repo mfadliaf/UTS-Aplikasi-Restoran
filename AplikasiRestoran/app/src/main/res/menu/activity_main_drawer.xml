@@ -3,23 +3,31 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/page_pesan"
-            android:icon="?android:attr/actionModePasteDrawable"
-            android:title="Pesan Makanan" />
+            android:id="@+id/pesan"
+
+            android:title="Pesan Makanan"
+            android:icon="?android:attr/actionModePasteDrawable" />
         <item
-            android:id="@+id/page_booking"
-            android:icon="?android:attr/actionModeSelectAllDrawable"
-            android:title="Booking Meja" />
+            android:id="@+id/booking"
+
+            android:title="Booking Meja"
+            android:icon="?android:attr/actionModeSelectAllDrawable" />
         <item
-            android:id="@+id/page_about"
-            android:icon="@android:drawable/ic_menu_help"
-            android:title="About" />
+            android:id="@+id/about"
+
+            android:title="About"
+            android:icon="@android:drawable/ic_menu_help" />
         <item
             android:id="@+id/logout"
-            android:icon="@android:drawable/ic_partial_secure"
-            android:title="Logout" />
-    </group>
 
+            android:title="Logout"
+            android:icon="@android:drawable/ic_partial_secure" />
+        <item
+            android:id="@+id/home"
+
+            android:title="Home"
+            android:icon="@android:drawable/ic_menu_myplaces" />
+    </group>
 
 
 </menu>

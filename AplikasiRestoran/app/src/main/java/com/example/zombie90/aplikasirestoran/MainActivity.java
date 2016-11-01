@@ -1,48 +1,39 @@
 package com.example.zombie90.aplikasirestoran;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.AdapterView;
-import android.widget.ListAdapter;
-import android.widget.ListView;
+import android.view.View;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 
-
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
-
-
-
+public class MainActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
+    SessionManager session;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        session = new SessionManager(getApplicationContext());
+        session.checkLogin();
+        HashMap<String, String> user = session.getUserDetails();
+        String name = user.get(SessionManager.KEY_NAME);
+        String email = user.get(SessionManager.KEY_EMAIL);
+
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -52,11 +43,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        pindahHalaman(R.id.home);
     }
-
-
-
-
 
     @Override
     public void onBackPressed() {
@@ -68,44 +56,61 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
 
 
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
         pindahHalaman(item.getItemId());
+
         return true;
     }
-
-    boolean halamanUtama;
-    public void pindahHalaman (int viewId){
+    Boolean halamanUtamana;
+    public void pindahHalaman(int viewId){
         Fragment fragment = null;
-        String title  = getString(R.string.app_name);
+        String judul = getString(R.string.app_name);
 
-        switch(viewId){
-            case R.id.page_pesan:
-                fragment = new PesanMakanan();
-                title = "Home";
-                halamanUtama = true;
+        switch (viewId){
+            case  R.id.home :
+                fragment = new HomeFragment();
+                judul = "Home";
+                halamanUtamana = true;
                 break;
-            case R.id.page_booking:
-                fragment = new BookingMeja();
-                title = "Home";
-                halamanUtama = true;
+            case  R.id.pesan :
+                fragment = new PesanFragment();
+                judul = "Pesan Makanan";
+                halamanUtamana = false;
                 break;
-            case R.id.page_about:
+            case  R.id.booking :
+                fragment = new BookingFragment();
+                judul = "Booking Meja";
+                halamanUtamana = false;
+                break;
+            case  R.id.about :
                 fragment = new AboutFragment();
-                title = "Home";
-                halamanUtama = false;
+                judul = "About";
+                halamanUtamana = false;
+                break;
+            case  R.id.logout :
+                session.logoutUser();
+                finish();
                 break;
         }
-
-
         if(fragment!=null){
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.conten_frame, fragment);
+            ft.replace(R.id.content_frame, fragment);
             ft.commit();
+        }
+        if(getSupportActionBar()!= null){
+            getSupportActionBar().setTitle(judul);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -1,23 +1,25 @@
 <resources>
     <string name="app_name">Aplikasi Restoran</string>
-    <string name="title_activity_main2">Main2Activity</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
-    <string name="title_activity_main">MainActivity</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_login">Sign in</string>
 
-        <string name="details_keraktelor">One-third the area of the United States, the Republic of India occupies most of the subcontinent of India in southern Asia. It borders on China in the northeast. Other neighbors are Pakistan on the west, Nepal and Bhutan on the north, and Burma and Bangladesh on the east.
-The country can be divided into three distinct geographic regions: the Himalayan region in the north, which contains some of the highest mountains in the world, the Gangetic Plain, and the plateau region in the south and central part. Its three great river systems—the Ganges, the Indus, and the Brahmaputra—have extensive deltas and all rise in the Himalayas.</string>
-
-    <string name="details_tahugimbal">The continent of Australia, with the island state of Tasmania, is approximately equal in area to the United States (excluding Alaska and Hawaii). Mountain ranges run from north to south along the east coast, reaching their highest point in Mount Kosciusko (7,308 ft; 2,228 m). The western half of the continent is occupied by a desert plateau that rises into barren, rolling hills near the west coast. The Great Barrier Reef, extending about 1,245 mi (2,000 km), lies along the northeast coast. The island of Tasmania (26,178 sq mi; 67,800 sq km) is off the southeast coast</string>
-    <string name="details_milendir">The greater part of the country is mountainous. Its principal ranges are the Tien Shan, the Kunlun chain, and the Trans-Himalaya. In the southwest is Tibet, which China annexed in 1950. The Gobi Desert lies to the north. China proper consists of three great river systems: the Yellow River (Huang He), 2,109 mi (5,464 km) long; the Yangtze River (Chang Jiang), the third-longest river in the world at 2,432 mi (6,300 km); and the Pearl River (Zhu Jiang), 848 mi (2,197 km) long.</string>
-    <string name="details_nasigandul">Indonesia is an archipelago in Southeast Asia consisting of 17,000 islands (6,000 inhabited) and straddling the equator. The largest islands are Sumatra, Java (the most populous), Bali, Kalimantan (Indonesia\'s part of Borneo), Sulawesi (Celebes), the Nusa Tenggara islands, the Moluccas Islands, and Irian Jaya (also called West Papua), the western part of New Guinea. Its neighbor to the north is Malaysia and to the east is Papua New Guinea.
-
-Indonesia, part of the “ring of fire,” has the largest number of active volcanoes in the world. Earthquakes are frequent. Wallace\'s line, a zoological demarcation between Asian and Australian flora and fauna, divides Indonesia.</string>
-    <string name="details_rawonsetan">An archipelago in the Pacific, Japan is separated from the east coast of Asia by the Sea of Japan. It is approximately the size of Montana. Japan\'s four main islands are Honshu, Hokkaido, Kyushu, and Shikoku. The Ryukyu chain to the southwest was U.S.-occupied from 1945 to 1972, when it reverted to Japanese control, and the Kurils to the northeast are Russian-occupied.</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
 </resources>
